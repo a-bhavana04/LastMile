@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LastMile: Business Owner</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" id="navBar">
+        <a class="navbar-brand" href="/"><img src="/images/Logo.png" style="width: 50px;margin-right:10px">LastMile</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/business">Business Owner <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/fleet">Fleet Management</a>
+            </li>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="/blogin" method="post" class="form col-md-6 mt-5" style="margin: 20px;">
+                    <label class="form-label white">Username</label>
+                    <input type="text" name="username" class="form-control">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control">
+                    <input type="hidden" value="business" name="mode">
+                    <input type="submit" class="btn btn-info m-3">
+                </form>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/blogin.png" class="img-fluid" alt="Business Login" style="margin: 20px;">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

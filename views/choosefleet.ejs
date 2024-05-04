@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Fleet</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" id="navBar">
+    <a class="navbar-brand" href="/"><img src="/images/Logo.png" style="width: 50px;margin-right:10px">LastMile</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/gensm">Generate Smart Contract<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/choosefleet">Choose a Delivery system</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/business">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+      </form>
+    </div>
+</nav>
+<div class="container mt-5 rounded p-5 text-light" style="background-color: #E26868;">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Choose Fleet</h1>
+            <form action="/showfleets" method="GET" class="form">
+                <div>
+                    <label for="fromLocation" class="form-label">From Location:</label>
+                    <input type="text" id="fromLocation" name="fromLocation" class="form-control">
+                </div>
+                <div>
+                    <label for="toLocation" class="form-label">To Location:</label>
+                    <input type="text" id="toLocation" name="toLocation" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-info m-3">Search</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <% if (fleets && fleets.length > 0) { %>
+                <h2>Available Fleets:</h2>
+                <ul>
+                    <% fleets.forEach(fleet => { %>
+                        <li>
+                            <strong>Fleet ID:</strong> <%= fleet.fleetId %>, 
+                            <strong>Name:</strong> <%= fleet.Name %>, 
+                            <strong>Price Per Km:</strong> <%= fleet.pricePerKm %>
+                            <form action="/bookfleet" method="POST">
+                                <input type="hidden" name="fleetId" value="<%= fleet.fleetId %>">
+                                <button type="submit" class="btn btn-success m-3">Book</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No fleets available for the specified location.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

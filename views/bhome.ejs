@@ -1,0 +1,58 @@
+<!-- bhome.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" id="navBar">
+        <a class="navbar-brand" href="/"><img src="/images/Logo.png" style="width: 50px;margin-right:10px">LastMile</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/gensm">Generate Smart Contract<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/choosefleet">Choose a Delivery sytem</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" action="/business">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+          </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <center>
+        <h3>Your Orders:</h3>
+        <ul class="list-group" style="width:70%">
+            <% orders.forEach(order => { %>
+                <li class="list-group-item">Order ID: <%= order.orderId %>, From: <%= order.fromLocation %>, To: <%= order.toLocation %>, Status: 
+                    <% switch(order.status) {
+                        case "initialised":
+                            %><button class="btn btn-primary">Initialised</button><%
+                            break;
+                        case "inTransit":
+                            %><button class="btn btn-warning">In Transit</button><%
+                            break;
+                        case "delivered":
+                            %><button class="btn btn-success">Delivered</button><%
+                            break;
+                        default:
+                            %><button class="btn btn-secondary">Unknown</button><%
+                    } %>
+                </li>
+            <% }); %>
+        </ul></center>
+    </div>
+
+</body>
+</html>

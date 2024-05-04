@@ -1,0 +1,43 @@
+body{
+    background-color: #D8D9CF !important;
+}
+
+#navBar{
+    background-color: #E26868;
+}
+
+a{
+    color: white !important;
+    font-weight: 500;
+}
+
+a:hover{
+    color: #D8D9CF !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#homecmp{
+    display: flex;
+    justify-content: center;
+}
+
+#tagline{
+    color: #E26868;
+}
+
+h2{
+    text-align: center;
+    font-family: "Poetsen One", sans-serif !important;
+  font-weight: 400;
+  font-style: normal;;
+}
+h3{
+    text-align: center;
+}
+h4{
+    text-align: center;font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
