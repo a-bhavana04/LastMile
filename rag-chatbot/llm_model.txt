@@ -1,0 +1,1 @@
+download quantized version of llama2 7b parameters from TheBloke/Llama-2-7B-Chat-GGML 
