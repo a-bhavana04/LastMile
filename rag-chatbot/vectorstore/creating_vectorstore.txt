@@ -1,0 +1,2 @@
+data after running ingest.py is stored in this folder as .pkl file 
+set embeddings,allow_dangerous_deserialization=True
