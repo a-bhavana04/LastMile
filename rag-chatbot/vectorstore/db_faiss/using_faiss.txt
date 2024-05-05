@@ -1,0 +1,1 @@
+path for database of embeddings. FAISS is used to cluster the similarities. 
